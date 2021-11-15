@@ -147,7 +147,7 @@ const inline std::string join(const std::tuple<ARGS...> t,
     std::apply(
         [&a, &sep](auto const &...b) {
           size_t i = 0;
-          a = a + (((i++ ? sep : "") + to_string(b)) + ...);
+          a = a + (((i++ > 0 ? sep : "") + to_string(b)) + ...);
         },
         t);
     return a;
